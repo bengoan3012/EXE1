@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng ký</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: #f4f4f4;
+        }
+        .container {
+            width: 300px;
+            margin: 100px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px gray;
+        }
+        input {
+            width: 90%;
+            padding: 8px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .button {
+            padding: 10px;
+            background: blue;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .button:hover {
+            background: darkblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Đăng ký</h2>
+        <input type="text" id="username" placeholder="Nhập username">
+        <input type="email" id="email" placeholder="Nhập email">
+        <input type="password" id="password" placeholder="Nhập password">
+        <button class="button" type="button" onclick="register()">Đăng ký</button>
+        <p>Đã có tài khoản? <a href="login.html">Đăng nhập</a></p>
+    </div>
+
+    <script>
+        function register() {
+            let username = document.getElementById("username").value;
+            let email = document.getElementById("email").value;
+            let password = document.getElementById("password").value;
+
+            if (!username || !email || !password) {
+                alert("Vui lòng nhập đầy đủ thông tin!");
+                return;
+            }
+
+            let user = { username, email, password };
+            localStorage.setItem("user", JSON.stringify(user));
+            alert("Đăng ký thành công! Vui lòng đăng nhập.");
+            window.location.href = "login.html"; // Chuyển đúng trang login.html
+        }
+    </script>
+</body>
+</html>
